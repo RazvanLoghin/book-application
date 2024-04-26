@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/book_app
+    url: jdbc:postgresql://localhost:5432/book_social_network
     username: username
     password: password
     driver-class-name: org.postgresql.Driver
@@ -27,7 +27,8 @@ spring:
         writetimeout: 4000
     username: razvan@yahoo.com
     password: password
+    activation-url: http:/localhost:4200/activation-url
 jwt:
   secret-key: b582b92445bd2be1fd47e16d3d055e7e1d194813a0f64a0769fdf4314f0fd739f05553e3812f8a0e2d1822bf
-  expiration: 86400
+  expiration: 1800000
 

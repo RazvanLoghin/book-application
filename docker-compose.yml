@@ -5,10 +5,10 @@ services:
     environment:
       POSTGRES_USER: username
       POSTGRES_PASSWORD: password
-      POSTGRES_DATA: /var/lib/postgres/data
-      POSTGRES_DB: book_app
+      PGDATA: /var/lib/postgres/data
+      POSTGRES_DB: book_social_network
     volumes:
-      - postgres: /data/postgres
+      - postgres:/data/postgres
     ports:
       - 5432:5432
     networks:

@@ -1,8 +1,11 @@
 package com.example.book.controller;
 
-import com.example.book.service.AuthService;
+import com.example.book.entity.auth.AuthenticateResponse;
+import com.example.book.entity.auth.AuthenticationRequest;
 import com.example.book.entity.auth.RegistrationRequest;
+import com.example.book.service.AuthService;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.mail.MessagingException;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -20,8 +23,18 @@ public class AuthenticationController {
 
     @PostMapping("/registration")
     @ResponseStatus(ACCEPTED)
-    public ResponseEntity<?> register(@RequestBody @Valid RegistrationRequest registrationRequest) {
+    public ResponseEntity<?> register(@RequestBody @Valid RegistrationRequest registrationRequest) throws MessagingException {
         authService.register(registrationRequest);
         return ResponseEntity.accepted().build();
+    }
+
+    @PostMapping("/authentication")
+    public ResponseEntity<AuthenticateResponse> authenticate(@RequestBody @Valid AuthenticationRequest request) {
+        return ResponseEntity.ok(authService.authenticate(request));
+    }
+
+    @GetMapping("/account-activation")
+    public void confirm(@RequestParam String token) throws MessagingException {
+        authService.enableAccount(token);
     }
 }
