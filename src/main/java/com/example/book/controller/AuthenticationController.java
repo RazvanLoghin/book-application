@@ -1,6 +1,6 @@
 package com.example.book.controller;
 
-import com.example.book.entity.auth.AuthenticateResponse;
+import com.example.book.entity.auth.AuthenticationResponse;
 import com.example.book.entity.auth.AuthenticationRequest;
 import com.example.book.entity.auth.RegistrationRequest;
 import com.example.book.service.AuthService;
@@ -29,7 +29,7 @@ public class AuthenticationController {
     }
 
     @PostMapping("/authentication")
-    public ResponseEntity<AuthenticateResponse> authenticate(@RequestBody @Valid AuthenticationRequest request) {
+    public ResponseEntity<AuthenticationResponse> authenticate(@RequestBody @Valid AuthenticationRequest request) {
         return ResponseEntity.ok(authService.authenticate(request));
     }
 

@@ -1,7 +1,7 @@
 package com.example.book.service.impl;
 
 import com.example.book.entity.User;
-import com.example.book.entity.auth.AuthenticateResponse;
+import com.example.book.entity.auth.AuthenticationResponse;
 import com.example.book.entity.auth.AuthenticationRequest;
 import com.example.book.entity.auth.RegistrationRequest;
 import com.example.book.entity.token.Token;
@@ -59,7 +59,7 @@ public class AuthServiceImpl implements AuthService {
     }
 
     @Override
-    public AuthenticateResponse authenticate(AuthenticationRequest request) {
+    public AuthenticationResponse authenticate(AuthenticationRequest request) {
         var auth = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(request.getEmail(), request.getPassword())
         );
@@ -67,7 +67,7 @@ public class AuthServiceImpl implements AuthService {
         var user = (User) auth.getPrincipal();
         claims.put("fullname", user.getFullName());
         var jwt = jwtService.generateToken(claims, user);
-        return AuthenticateResponse.builder()
+        return AuthenticationResponse.builder()
                 .token(jwt).build();
     }
 
