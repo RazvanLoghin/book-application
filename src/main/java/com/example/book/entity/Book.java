@@ -17,6 +17,7 @@ import java.util.List;
 @NoArgsConstructor
 public class Book extends BaseEntity {
 
+    @Column(unique = true)
     private String title;
     private String author;
     private String isbn;
@@ -31,5 +32,16 @@ public class Book extends BaseEntity {
 
     @OneToMany(mappedBy = "book")
     private List<BookTransactionHistory> histories;
+
+    @Transient
+    public double getRate() {
+        if (feedbacks == null || feedbacks.isEmpty()) {
+            return 0.0;
+        }
+        return feedbacks.stream()
+                .mapToDouble(Feedback::getRating)
+                .average()
+                .orElse(0.0);
+    }
 
 }
