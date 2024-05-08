@@ -1,8 +1,8 @@
 package com.example.book.controller;
 
-import com.example.book.entity.auth.AuthenticationResponse;
-import com.example.book.entity.auth.AuthenticationRequest;
-import com.example.book.entity.auth.RegistrationRequest;
+import com.example.book.dto.auth.AuthenticationResponse;
+import com.example.book.dto.auth.AuthenticationRequest;
+import com.example.book.dto.auth.RegistrationRequest;
 import com.example.book.service.AuthService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.mail.MessagingException;

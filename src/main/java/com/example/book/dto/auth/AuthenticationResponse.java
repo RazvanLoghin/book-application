@@ -1,4 +1,4 @@
-package com.example.book.entity.auth;
+package com.example.book.dto.auth;
 
 import lombok.Builder;
 import lombok.Getter;

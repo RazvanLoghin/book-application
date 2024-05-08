@@ -1,9 +1,9 @@
 package com.example.book.service.impl;
 
 import com.example.book.entity.User;
-import com.example.book.entity.auth.AuthenticationResponse;
-import com.example.book.entity.auth.AuthenticationRequest;
-import com.example.book.entity.auth.RegistrationRequest;
+import com.example.book.dto.auth.AuthenticationResponse;
+import com.example.book.dto.auth.AuthenticationRequest;
+import com.example.book.dto.auth.RegistrationRequest;
 import com.example.book.entity.token.Token;
 import com.example.book.enums.EmailTemplateName;
 import com.example.book.exception.RoleNotFoundException;

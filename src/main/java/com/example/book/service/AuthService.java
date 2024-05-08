@@ -1,8 +1,8 @@
 package com.example.book.service;
 
-import com.example.book.entity.auth.AuthenticationResponse;
-import com.example.book.entity.auth.AuthenticationRequest;
-import com.example.book.entity.auth.RegistrationRequest;
+import com.example.book.dto.auth.AuthenticationResponse;
+import com.example.book.dto.auth.AuthenticationRequest;
+import com.example.book.dto.auth.RegistrationRequest;
 import jakarta.mail.MessagingException;
 
 public interface AuthService {
